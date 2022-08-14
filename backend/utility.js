@@ -10,3 +10,7 @@ const checkExistingUser = async (username) => {
        });
        return existingUser;
 }
+
+
+
+module.exports = {checkExistingUser};

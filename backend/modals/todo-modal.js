@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const todoArray = new mongoose.Schema({
     activityName:{
         type: String,
-        require: true,
-        unique:true
+        require: true
     },
     status:{
         type:String,
@@ -12,9 +11,9 @@ const todoArray = new mongoose.Schema({
         default: "Pending"
     },
     bufferTime:{
-        type:String,
+        type:Number,
         require:true,
-        default:"00:00:00"
+        default:0//"00:00:00"
     },
     StartTime:{
         type:Date,
@@ -25,12 +24,15 @@ const todoArray = new mongoose.Schema({
 const todoInfoSchema = new mongoose.Schema({
     username:{
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     todoList:{
-        type:[todoArray],
+        type:Array,
         default:[]
+    },
+    currentOngoing:{
+        type:String,
+        default:""
     }
 });
 
